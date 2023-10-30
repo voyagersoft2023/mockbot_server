@@ -1,0 +1,52 @@
+server:
+  port: 7777
+
+spring:
+  datasource:
+    ##### PostgreDB
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://172.104.126.167:5432/mockbot?characterEncoding=UTF-8&serviceTimezone=UTC
+    username: postgres
+    password: qhdlwj0118%
+    ##### PostgreDB
+
+    ##### MariaDB
+    # driver-class-name: org.mariadb.jdbc.Driver
+    # url: jdbc:mariadb://IP:3306/name?characterEncoding=UTF-8&serviceTimezone=UTC
+    # username:
+    # password:
+    ##### MariaDB
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: debug
+        type: off
+
+oauth2:
+  google:
+    client-id: 759243507256-0k7sp4jn7o0dav5mmb9vn29m693rkh28.apps.googleusercontent.com
+    client-secret: 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
+    redirect-uri: http://localhost:7777/login/oauth2/code/google
+    token-uri: https://oauth2.googleapis.com/token
+    resource-uri: https://www.googleapis.com/oauth2/v2/userinfo
+  kakao:
+    client-id: 0fed88e2417a1933520cf72d64249654
+    client-secret: DevjTRoOOHmUK7bBHs4115jJoSmziXRP
+    redirect-uri: http://localhost:7777/login/oauth2/code/kakao
+    token-uri: https://kauth.kakao.com/oauth/token
+    resource-uri: https://kapi.kakao.com/v2/user/me
+  naver:
+    client-id: XKpBJbebaMpXZSK_IKlT
+    client-secret: H8L_WvRiA7
+    redirect-uri: http://localhost:7777/login/oauth2/code/naver
+    token-uri: https://nid.naver.com/oauth2.0/token
+    resource-uri: https://openapi.naver.com/v1/nid/me
