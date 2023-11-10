@@ -71,6 +71,9 @@ dependencies {
 	kapt ("com.querydsl:querydsl-apt:5.0.0:jakarta")
 	kapt ("jakarta.annotation:jakarta.annotation-api")
 	kapt ("jakarta.persistence:jakarta.persistence-api")
+
+	// 2023.11.01[shiningtrue]: ELK
+	implementation("net.logstash.logback:logstash-logback-encoder:7.4")
 }
 
 tasks.withType<KotlinCompile> {

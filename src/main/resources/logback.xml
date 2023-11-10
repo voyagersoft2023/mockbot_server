@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="MAX_FILE_SIZE" value="50MB"/>
+
+    <property name="MAX_HISTORY" value="7"/>
+
+    <property name="API_LOG_PATH_NAME" value="c:/works/test/API.log"/>
+
+    <appender name="api" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${API_LOG_PATH_NAME}</file>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <provider class="net.logstash.logback.composite.loggingevent.ArgumentsJsonProvider"/>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${API_LOG_PATH_NAME}_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} | %m%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.voyagersoft.mockbot.api" level="INFO" additivity="false">
+        <appender-ref ref="api"/>
+    </logger>
+</configuration>
