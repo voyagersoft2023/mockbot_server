@@ -4,7 +4,7 @@ import java.util.*
 
 
 class ExceptionResponse(
-    val date: String = "",
-    val message: String = "",
-    val content: String = ""
+    var date: String = "",
+    var message: String = "",
+    var content: String = ""
 )
