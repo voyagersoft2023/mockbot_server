@@ -21,7 +21,17 @@
         </layout>
     </appender>
 
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyyMMdd HH:mm:ss.SSS} [%thread] %-5level [%logger{0}:%line] - %msg %n</pattern>
+        </encoder>
+    </appender>
+
     <logger name="com.voyagersoft.mockbot.api" level="INFO" additivity="false">
         <appender-ref ref="api"/>
+    </logger>
+
+    <logger name="com.voyagersoft.mockbot" level="error">
+        <appender-ref ref="CONSOLE" />
     </logger>
 </configuration>
