@@ -31,7 +31,7 @@
         <appender-ref ref="api"/>
     </logger>
 
-    <logger name="com.voyagersoft.mockbot" level="error">
+    <root level="INFO">
         <appender-ref ref="CONSOLE" />
-    </logger>
+    </root>
 </configuration>
