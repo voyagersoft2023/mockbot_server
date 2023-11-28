@@ -18,11 +18,12 @@ spring:
     ##### MariaDB
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true
         show_sql: true
+        auto_quote_keyword: true
 
 logging:
   level:
