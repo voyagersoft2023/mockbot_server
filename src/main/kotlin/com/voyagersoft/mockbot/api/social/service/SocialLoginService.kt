@@ -5,6 +5,7 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonParser
 import com.voyagersoft.mockbot.api.user.model.entity.User
 import com.voyagersoft.mockbot.api.user.repository.UserRepository
+import mu.KotlinLogging
 import org.springframework.core.env.Environment
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -23,6 +24,7 @@ class SocialLoginService(
     private val restTemplate: RestTemplate
 ) {
 
+    private val log = KotlinLogging.logger{ }
     /* 2023.10.13 [shiningtrue]: oAuth 조회된 유저 정보 세팅 */
     fun socialLogin(code: String, registrationId: String): String {
         var reslut = ""
@@ -75,6 +77,7 @@ class SocialLoginService(
     /* 2023.10.13 [shiningtrue]: oAuth Token 발급 */
     @Throws(Exception::class)
     private fun getAccessToken(authorizationCode: String, registrationId: String): String {
+        log.info("로깅 발생!");
         val clientId: String = env.getRequiredProperty("oauth2.$registrationId.client-id")
         val clientSecret: String = env.getRequiredProperty("oauth2.$registrationId.client-secret")
         val redirectUri: String = env.getRequiredProperty("oauth2.$registrationId.redirect-uri")

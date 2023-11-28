@@ -74,6 +74,9 @@ dependencies {
 
 	// 2023.11.01[shiningtrue]: ELK
 	implementation("net.logstash.logback:logstash-logback-encoder:7.4")
+
+	// 2023.11.13[shiningtrue]: modelmapper
+	implementation("org.modelmapper:modelmapper:3.1.1")
 }
 
 tasks.withType<KotlinCompile> {
