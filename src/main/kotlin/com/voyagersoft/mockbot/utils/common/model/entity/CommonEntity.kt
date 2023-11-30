@@ -1,4 +1,4 @@
-package com.voyagersoft.mockbot.apis.common.model.entity
+package com.voyagersoft.mockbot.utils.common.model.entity
 
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment

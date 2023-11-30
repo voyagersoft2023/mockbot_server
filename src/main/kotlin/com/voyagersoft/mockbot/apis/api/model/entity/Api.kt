@@ -2,7 +2,7 @@ package com.voyagersoft.mockbot.apis.api.model.entity
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo
 import com.fasterxml.jackson.annotation.ObjectIdGenerators
-import com.voyagersoft.mockbot.apis.common.model.entity.CommonEntity
+import com.voyagersoft.mockbot.utils.common.model.entity.CommonEntity
 import com.voyagersoft.mockbot.apis.project.model.entity.Project
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment

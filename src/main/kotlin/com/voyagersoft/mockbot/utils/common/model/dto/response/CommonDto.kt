@@ -1,4 +1,4 @@
-package com.voyagersoft.mockbot.apis.common.model.dto.response
+package com.voyagersoft.mockbot.utils.common.model.dto.response
 
 class CommonDto{
     var createDate: String = ""
