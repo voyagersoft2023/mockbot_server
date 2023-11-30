@@ -24,7 +24,7 @@ class UserController(
 ) {
 
     @PostMapping("/login")
-    @ExceptionHandler(Exception::class)
+    @Throws(Exception::class)
     fun login(
         @RequestBody request: UserRequest,
         httpServletResponse: HttpServletResponse
@@ -38,7 +38,7 @@ class UserController(
     }
 
     @PostMapping("/register")
-    @ExceptionHandler(Exception::class)
+    @Throws(Exception::class)
     fun register(@RequestBody request: UserRequest): ResponseEntity<*> {
         val response = ResponseStructure().apply {
             code = ResponseCode.SUCCESS.code
@@ -49,7 +49,7 @@ class UserController(
     }
 
     @PostMapping("/apitest")
-    @ExceptionHandler(Exception::class)
+    @Throws(Exception::class)
     fun apiTest(): ResponseEntity<*> {
         val response = ResponseStructure().apply {
             code = ResponseCode.SUCCESS.code
