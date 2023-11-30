@@ -1,26 +1,28 @@
 package com.voyagersoft.mockbot.api.user.model.dto
 
+
 class UserRequest {
 
     var id: Int = 0
 
-    lateinit var name: String
+    var name: String = ""
 
-    lateinit var email: String
+    var email: String = ""
+    
+    var password: String = ""
+    
+    var company: String = ""
+    
+    var privacy: String = ""
+    
+    var role: String = ""
+    
+    var social_id: String = ""
+    
+    var use_yn: String = ""
+    
+    var last_login_dt: String = ""
+    
+    var login_type: String = ""
 
-    lateinit var password: String
-
-    lateinit var company: String
-
-    lateinit var privacy: String
-
-    lateinit var role: String
-
-    lateinit var social_id: String
-
-    lateinit var use_yn: String
-
-    lateinit var last_login_dt: String
-
-    lateinit var login_type: String
 }

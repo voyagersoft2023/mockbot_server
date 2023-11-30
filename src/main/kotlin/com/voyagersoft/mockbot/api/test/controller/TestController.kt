@@ -1,10 +1,13 @@
 package com.voyagersoft.mockbot.api.test.controller
 
+import com.voyagersoft.mockbot.api.jwt.model.dto.JwtDto
 import com.voyagersoft.mockbot.utils.response.ResponseCode
 import com.voyagersoft.mockbot.utils.response.ResponseStructure
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
@@ -31,4 +34,8 @@ class TestController {
         return ResponseEntity(response, HttpStatus.OK)
     }
 
+    @PostMapping("/post/test")
+    fun postTest(@RequestBody body: JwtDto) {
+
+    }
 }
