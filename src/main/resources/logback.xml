@@ -27,7 +27,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.voyagersoft.mockbot.api" level="INFO" additivity="false">
+    <logger name="com.voyagersoft.mockbot.apis" level="INFO" additivity="false">
         <appender-ref ref="api"/>
     </logger>
 
