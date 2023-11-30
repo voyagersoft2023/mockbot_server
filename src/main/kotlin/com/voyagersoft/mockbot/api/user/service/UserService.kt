@@ -1,6 +1,7 @@
 package com.voyagersoft.mockbot.api.user.service
 
-import com.voyagersoft.mockbot.api.api.model.dto.ApiResponse
+import com.voyagersoft.mockbot.api.api.model.dto.response.ApiDto
+import com.voyagersoft.mockbot.api.api.model.dto.response.ApiRequestDto
 import com.voyagersoft.mockbot.api.api.model.entity.Api
 import com.voyagersoft.mockbot.api.api.model.entity.ApiRequest
 import com.voyagersoft.mockbot.api.api.repository.ApiRepository
@@ -10,7 +11,6 @@ import com.voyagersoft.mockbot.api.user.model.entity.User
 import com.voyagersoft.mockbot.api.user.repository.UserRepository
 import com.voyagersoft.mockbot.utils.jwt.JwtUtils
 import org.modelmapper.ModelMapper
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
 import java.util.stream.Collectors
@@ -37,12 +37,5 @@ class UserService(
             userRepository.save(modelMapper.map(request, User::class.java))
         }
         return response
-    }
-
-    fun apiTest(): Any {
-        var response = ApiResponse()
-        var apis = apiRepository.testSelect()
-        var test = modelMapper.map(apis[0], ApiResponse::class) as ApiResponse
-        return modelMapper.map(apis[0], ApiResponse::class)
     }
 }

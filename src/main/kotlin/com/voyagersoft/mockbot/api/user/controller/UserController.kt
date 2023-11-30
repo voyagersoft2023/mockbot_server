@@ -48,16 +48,5 @@ class UserController(
         return ResponseEntity(response, HttpStatus.OK)
     }
 
-    @PostMapping("/apitest")
-    @Throws(Exception::class)
-    fun apiTest(): ResponseEntity<*> {
-        val response = ResponseStructure().apply {
-            code = ResponseCode.SUCCESS.code
-            message = ResponseCode.SUCCESS.message
-            data = userService.apiTest()
-        }
-        return ResponseEntity(response, HttpStatus.OK)
-    }
-
 }
 

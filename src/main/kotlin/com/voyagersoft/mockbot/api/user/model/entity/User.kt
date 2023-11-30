@@ -3,6 +3,8 @@ package com.voyagersoft.mockbot.api.user.model.entity
 import com.fasterxml.jackson.annotation.JsonIdentityInfo
 import com.fasterxml.jackson.annotation.ObjectIdGenerator
 import com.fasterxml.jackson.annotation.ObjectIdGenerators
+import com.voyagersoft.mockbot.api.common.model.entity.BaseEntity
+import com.voyagersoft.mockbot.api.common.model.entity.CommonEntity
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment
 import org.hibernate.annotations.DynamicInsert
@@ -16,9 +18,123 @@ import org.jetbrains.annotations.NotNull
     ]
 )
 @DynamicInsert
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @DynamicUpdate
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator::class, property = "email")
-class User {
+class User: CommonEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

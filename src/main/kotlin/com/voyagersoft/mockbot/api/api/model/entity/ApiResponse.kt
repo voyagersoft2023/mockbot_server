@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo
 import com.fasterxml.jackson.annotation.ObjectIdGenerators
 import com.voyagersoft.mockbot.api.common.model.entity.BaseEntity
 import com.voyagersoft.mockbot.api.common.model.entity.CommonEntity
-import com.voyagersoft.mockbot.api.project.model.entity.Project
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment
 import org.hibernate.annotations.DynamicInsert
@@ -14,40 +13,43 @@ import org.jetbrains.annotations.NotNull
 
 @Entity
 @Table(
-    name = "Apis", indexes = [
-        Index(name = "i_apis_id", columnList = "id"),
+    name = "ApiResponses", indexes = [
+        Index(name = "i_apiResponses_id", columnList = "id"),
     ]
 )
 @DynamicInsert
 @DynamicUpdate
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator::class, property = "id")
-class Api: CommonEntity() {
+class ApiResponse: CommonEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Comment("API ID")
+    @Comment("ID")
     var id: Long = 0
 
     @NotNull
-    @Comment("API명")
-    var apiName: String = ""
+    @Comment("KEY")
+    var key: String = ""
 
     @NotNull
-    @Comment("그룹여부")
-    var groupYn: String = ""
+    @Comment("API REQUEST명")
+    var name: String = ""
 
-    @Comment("상위 API ID")
+    @NotNull
+    @Comment("DATA TYPE")
+    var dataType: String = ""
+
+    @Comment("상위 API RESPONSE ID")
     var upperId: Long = 0
 
-    @Comment("트리 깊이")
+    @Comment("깊이")
     @NotNull
     var depth: Long = 0
 
-    @Comment("트리 순서")
+    @Comment("순서")
     var order: Long = 0
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id")
-    var project: Project? = null
-
+    @JoinColumn(name = "api_id")
+    var api: Api? = null
 }

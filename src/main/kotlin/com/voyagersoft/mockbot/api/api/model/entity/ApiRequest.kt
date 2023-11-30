@@ -2,6 +2,8 @@ package com.voyagersoft.mockbot.api.api.model.entity
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo
 import com.fasterxml.jackson.annotation.ObjectIdGenerators
+import com.voyagersoft.mockbot.api.common.model.entity.BaseEntity
+import com.voyagersoft.mockbot.api.common.model.entity.CommonEntity
 import jakarta.persistence.*
 import org.hibernate.annotations.Comment
 import org.hibernate.annotations.DynamicInsert
@@ -18,18 +20,12 @@ import org.jetbrains.annotations.NotNull
 @DynamicInsert
 @DynamicUpdate
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator::class, property = "id")
-class ApiRequest {
+class ApiRequest: CommonEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Comment("ID")
     var id: Long = 0
-
-    @NotNull
-    @Comment("API ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "api_id")
-    var api: Api? = null
 
     @NotNull
     @Comment("KEY")
@@ -56,5 +52,8 @@ class ApiRequest {
     @Comment("JSON DATA")
     var jsonData: String = ""
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "api_id")
+    var api: Api? = null
 
 }

@@ -30,6 +30,8 @@ class SecurityConfig(
                     .requestMatchers("/user/login").permitAll()
                     .requestMatchers("/user/register").permitAll()
                     .requestMatchers("/login/oauth2/**").permitAll()
+                    /* 테스트용 */
+                    .requestMatchers("/api/**").permitAll()
                     .anyRequest().authenticated()
             }
             .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
